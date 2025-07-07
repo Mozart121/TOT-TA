@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLEEKER - О бренде</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <style>
+        :root {
+            --charcoal: #333;
+            --gold: #c0a080;
+        }
+        
+        .about-page {
+            padding: 100px 5% 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .page-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--charcoal);
+            position: relative;
+        }
+        
+        .page-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 2px;
+            background: var(--gold);
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Стили для Hero-секции */
+        .about-hero {
+            background: linear-gradient(135deg, #f9f7f4 0%, #e8e1d7 100%);
+            padding: 80px 5%;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 80px;
+            border-radius: 10px;
+        }
+        
+        .about-hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+        
+        .about-hero-image {
+            flex: 1;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .about-hero-image img:hover {
+            transform: scale(1.03);
+        }
+        
+        .about-hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+        
+        .about-hero-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            color: var(--charcoal);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .about-hero-content p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        /* Стили для ценностей */
+        .values-section {
+            background: #f9f7f4;
+            padding: 60px 40px;
+            border-radius: 10px;
+            margin: 60px 0;
+        }
+        
+        .values-title {
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: var(--charcoal);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .value-icon {
+            font-size: 48px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .value-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--charcoal);
+        }
+        
+        .value-card p {
+            color: #777;
+            line-height: 1.6;
+        }
+        
+        /* Стили для технологий */
+        .tech-section {
+            margin: 80px 0;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #f9f7f4 0%, #e8e1d7 100%);
+            border-radius: 10px;
+        }
+        
+        .tech-title {
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: var(--charcoal);
+        }
+        
+        .tech-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .tech-content p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            text-align: center;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .tech-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .tech-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--charcoal);
+        }
+        
+        .tech-card p {
+            text-align: left;
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+        
+        /* Будущее бренда */
+        .future-section {
+            margin: 80px 0;
+            padding: 60px;
+            background: #f9f7f4;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .future-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: var(--charcoal);
+        }
+        
+        .future-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .future-content p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .about-hero-container {
+                flex-direction: column;
+            }
+            
+            .about-hero-image {
+                order: -1;
+                margin-bottom: 40px;
+            }
+            
+            .values-section,
+            .tech-section,
+            .future-section {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="logo">ТОТ<span>ТА</span></div>
+        <div class="mobile-menu-btn">☰</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li class="dropdown">
+                    <a href="#">Продукция</a>
+                    <div class="dropdown-content">
+                        <a href="shampoos.html">Шампуни TOT</a>
+                        <a href="conditioners.html">Кондиционеры</a>
+                        <a href="wash-off-masks.html">Маски смываемые TA</a>
+                        <a href="leave-in-masks.html">Маски несмываемые TA</a>
+                    </div>
+                </li>
+                <li><a href="about.html">О бренде</a></li>
+                <li><a href="blog.html">Блог</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Контент страницы -->
+    <main class="about-page">
+        <h1 class="page-title">О бренде SLEEKER</h1>
+        
+        <!-- Герой-секция (как на главной) -->
+        <section class="about-hero">
+            <div class="about-hero-container">
+                <div class="about-hero-image">
+                    <img src="images/about.jpg" alt="О бренде SLEEKER">
+                </div>
+                
+                <div class="about-hero-content">
+                    <h2>Наша история</h2>
+                    <p>Основанный в 2013 году, бренд SLEEKER появился как результат многолетних исследований в области ухода за волосами. Наша команда профессионалов ставила перед собой амбициозную цель - создать косметику премиум-класса, которая сочетает в себе силу натуральных ингредиентов и инновационные научные разработки.</p>
+                    
+                    <p>Начиная с небольшой лаборатории в Перми, сегодня мы превратились крупного производителя с собственной производственной базой. Наши продукты заслужили доверие как профессионалов салонов красоты, так и тысяч женщин, которые ежедневно выбирают SLEEKER для ухода за своими волосами.</p>
+                    
+                    <h2>Наша философия</h2>
+                    <p>В основе философии SLEEKER лежит принцип "Красота через здоровье". Мы убеждены, что истинная красота волос начинается с их здоровья. Поэтому все наши формулы создаются с учетом глубокого понимания структуры волос и потребностей различных типов локонов.</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="values-section">
+            <h2 class="values-title">Наши ценности</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Натуральность</h3>
+                    <p>Мы используем до 98% ингредиентов натурального происхождения в наших формулах, избегая агрессивных химических компонентов.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Инновации</h3>
+                    <p>Наша лаборатория постоянно работает над совершенствованием формул, внедряя последние научные разработки.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h3>Экологичность</h3>
+                    <p>Мы стремимся минимизировать экологический след, используя перерабатываемую упаковку и этичное производство.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Забота</h3>
+                    <p>Каждый продукт создается с любовью и вниманием к потребностям различных типов волос и их обладателей.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tech-section">
+            <h2 class="tech-title">Технологии и инновации</h2>
+            <div class="tech-content">
+                <p>В основе всех продуктов SLEEKER лежат уникальные технологии. Наши разработки обеспечивают глубокое очищение, восстановление и защиту волос на профессиональном уровне.</p>
+                
+                <div class="tech-grid">
+                    <!-- Шампунь -->
+                    <div class="tech-card">
+                        <h3>TОТ шампунь</h3>
+                        <p>Обеспечивает глубокое очищение и насыщение волос кератином для восстановления их естественной красоты и здоровья.</p>
+                    </div>
+                    
+                    <!-- Кондиционер -->
+                    <div class="tech-card">
+                        <h3>TОТ кондиционер</h3>
+                        <p>Обеспечивает питание и защиту волос, "закрывает" питательные вещества внутри волоса для длительного эффекта.</p>
+                    </div>
+                    
+                    <!-- Питательная маска -->
+                    <div class="tech-card">
+                        <h3>ТА маска питательная</h3>
+                        <p>Экстренное восстановление, создает надежный защитный барьер от термического воздействия, сохраняя волосы здоровыми даже при регулярном использовании утюжков и фенов.</p>
+                    </div>
+                    
+                    <!-- Холодный ботокс -->
+                    <div class="tech-card">
+                        <h3>ТА маска "холодный ботокс"</h3>
+                        <p>Инновационная технология, которая позволяет достичь салонного эффекта гладкости и блеска в домашних условиях без посещения дорогих процедур.</p>
+                    </div>
+                    
+                    <!-- Несмываемая маска -->
+                    <div class="tech-card">
+                        <h3>ТА маска несмываемая</h3>
+                        <p>Инновационная формула длительного действия обеспечивает 24/7 защиту и восстановление волос без утяжеления. Не требует смывания, создавая эффект "жидкого шелка".</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="future-section">
+            <h2 class="future-title">Наше будущее</h2>
+            <div class="future-content">
+                <p>В планах SLEEKER - расширение географии присутствия и выход на международные рынки. Мы работаем над созданием новых линеек продукции, включая средства для мужского ухода и профессиональную серию для салонов красоты.</p>
+                
+                <p>Наша главная цель остается неизменной - помогать людям чувствовать себя красивыми и уверенными через здоровье и красоту их волос. Мы верим, что качественный уход должен быть доступен каждому, и продолжаем работать над воплощением этой идеи в каждом нашем продукте.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>SLEEKER</h3>
+                <p>Производитель настоящей косметики с 2013 года. ООО "Сликер".</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Продукция</h3>
+                <a href="shampoos.html">Шампуни TOT</a>
+                <a href="conditioners.html">Кондиционеры ТОТ</a>
+                <a href="wash-off-masks.html">Маски смываемые TA</a>
+                <a href="leave-in-masks.html">Маски несмываемые TA</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Полезное</h3>
+                <a href="blog.html">Блог</a>
+                <a href="#">Советы по уходу</a>
+                <a href="#">Инструкции</a>
+                <a href="#">Сертификаты</a>
+                <a href="#">Частые вопросы</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Контакты</h3>
+                <a href="tel:88008008000">8 800 800 8000</a>
+                <a href="mailto:info@sleeker.ru">info@sleeker.ru</a>
+                <a href="https://vk.com/sleeker" target="_blank">Группа ВКонтакте</a>
+                <a href="https://ozon.ru/brand/sleeker" target="_blank">Магазин на Ozon</a>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2023 SLEEKER. Все права защищены.
+        </div>
+    </footer>
+</body>
+</html>

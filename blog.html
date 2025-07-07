@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLEEKER - Блог об уходе за волосами</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <style>
+        .blog-page {
+            padding: 150px 5% 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .page-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--charcoal);
+            position: relative;
+        }
+        
+        .page-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 2px;
+            background: var(--gold);
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .blog-intro {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .blog-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .blog-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
+        
+        .blog-content {
+            padding: 30px;
+        }
+        
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: var(--gold);
+        }
+        
+        .blog-date {
+            margin-right: 20px;
+        }
+        
+        .blog-category {
+            background: rgba(184, 159, 122, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+        
+        .blog-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: var(--charcoal);
+        }
+        
+        .blog-excerpt {
+            color: #777;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            color: var(--gold);
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .read-more i {
+            margin-left: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .read-more:hover {
+            color: var(--charcoal);
+        }
+        
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+        
+        .blog-sidebar {
+            margin-top: 60px;
+            padding: 40px;
+            background: #f9f7f4;
+            border-radius: 10px;
+        }
+        
+        .sidebar-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: var(--charcoal);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .sidebar-title:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .categories-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .categories-list li {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .categories-list a {
+            display: flex;
+            justify-content: space-between;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .categories-list a:hover {
+            color: var(--gold);
+        }
+        
+        .categories-list span {
+            background: rgba(184, 159, 122, 0.1);
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+        
+        .popular-posts {
+            margin-top: 40px;
+        }
+        
+        .post-item {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .post-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .post-content {
+            flex: 1;
+        }
+        
+        .post-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .post-title a {
+            color: var(--charcoal);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .post-title a:hover {
+            color: var(--gold);
+        }
+        
+        .post-date {
+            font-size: 14px;
+            color: #999;
+        }
+        
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-sidebar {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="logo">ТОТ<span>ТА</span></div>
+        <div class="mobile-menu-btn">☰</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li class="dropdown">
+                    <a href="#">Продукция</a>
+                    <div class="dropdown-content">
+                        <a href="shampoos.html">Шампуни TOT</a>
+                        <a href="conditioners.html">Кондиционеры</a>
+                        <a href="wash-off-masks.html">Маски смываемые TA</a>
+                        <a href="leave-in-masks.html">Маски несмываемые TA</a>
+                    </div>
+                </li>
+                <li><a href="about.html">О бренде</a></li>
+                <li><a href="blog.html">Блог</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Контент страницы -->
+    <main class="blog-page">
+        <h1 class="page-title">ТОТ блог</h1>
+        
+        <div class="blog-intro">
+            <p>Добро пожаловать в наш блог о красоте и здоровье волос! Здесь вы найдете экспертные советы, последние тренды в уходе за волосами, секреты профессиональных стилистов и многое другое. Делимся знаниями, которые помогут вашим волосам сиять!</p>
+        </div>
+        
+        <div class="blog-grid">
+            <!-- Статья 1 -->
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="images/blog1.jpg" alt="5 шагов к здоровым волосам">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date"><i class="far fa-calendar"></i> 15 мая 2023</span>
+                        <span class="blog-category">Уход</span>
+                    </div>
+                    <h2 class="blog-title">5 простых шагов к здоровым и блестящим волосам</h2>
+                    <p class="blog-excerpt">Откройте секреты ежедневного ухода, которые преобразят ваши волосы. Узнайте, как правильно мыть, сушить и укладывать волосы, чтобы сохранить их здоровье и сияние на долгое время.</p>
+                    <a href="#" class="read-more">Читать далее <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            
+            <!-- Статья 2 -->
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="images/blog2.jpg" alt="Зимний уход за волосами">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date"><i class="far fa-calendar"></i> 3 апреля 2023</span>
+                        <span class="blog-category">Сезонный уход</span>
+                    </div>
+                    <h2 class="blog-title">Как защитить волосы зимой: полное руководство</h2>
+                    <p class="blog-excerpt">Холод, ветер и сухой воздух - настоящие враги ваших волос зимой. Узнайте, какие средства и техники ухода помогут сохранить волосы увлажненными и защищенными в холодное время года.</p>
+                    <a href="#" class="read-more">Читать далее <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            
+            <!-- Статья 3 -->
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="images/blog3.jpg" alt="Выбор шампуня по типу волос">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date"><i class="far fa-calendar"></i> 20 марта 2023</span>
+                        <span class="blog-category">Советы</span>
+                    </div>
+                    <h2 class="blog-title">Как правильно выбрать шампунь для вашего типа волос</h2>
+                    <p class="blog-excerpt">Тонкие, густые, сухие или жирные - каждый тип волос требует особого подхода. Наше руководство поможет вам разобраться в многообразии средств и выбрать идеальный шампунь для ваших волос.</p>
+                    <a href="#" class="read-more">Читать далее <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            
+            <!-- Статья 4 -->
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="images/blog4.jpg" alt="Домашние маски для волос">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date"><i class="far fa-calendar"></i> 5 марта 2023</span>
+                        <span class="blog-category">Рецепты</span>
+                    </div>
+                    <h2 class="blog-title">Лучшие домашние маски для восстановления волос</h2>
+                    <p class="blog-excerpt">Простые и эффективные рецепты масок из натуральных ингредиентов, которые можно приготовить дома. Питание, увлажнение и восстановление волос без лишних затрат.</p>
+                    <a href="#" class="read-more">Читать далее <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+        
+        <div class="blog-sidebar">
+            <h3 class="sidebar-title">Категории</h3>
+            <ul class="categories-list">
+                <li><a href="#">Уход <span>12</span></a></li>
+                <li><a href="#">Стиль <span>8</span></a></li>
+                <li><a href="#">Окрашивание <span>5</span></a></li>
+                <li><a href="#">Сезонный уход <span>7</span></a></li>
+                <li><a href="#">Профессиональные советы <span>9</span></a></li>
+                <li><a href="#">Рецепты <span>6</span></a></li>
+            </ul>
+            
+            <div class="popular-posts">
+                <h3 class="sidebar-title">Популярные статьи</h3>
+                <div class="post-item">
+                    <div class="post-image">
+                        <img src="images/blog-popular1.jpg" alt="Термозащита для волос">
+                    </div>
+                    <div class="post-content">
+                        <h4 class="post-title"><a href="#">Как правильно использовать термозащиту для волос</a></h4>
+                        <div class="post-date">10 февраля 2023</div>
+                    </div>
+                </div>
+                
+                <div class="post-item">
+                    <div class="post-image">
+                        <img src="images/blog-popular2.jpg" alt="Сушка волос">
+                    </div>
+                    <div class="post-content">
+                        <h4 class="post-title"><a href="#">Идеальная сушка волос: секреты профессионалов</a></h4>
+                        <div class="post-date">28 января 2023</div>
+                    </div>
+                </div>
+                
+                <div class="post-item">
+                    <div class="post-image">
+                        <img src="images/blog-popular3.jpg" alt="Объем у корней">
+                    </div>
+                    <div class="post-content">
+                        <h4 class="post-title"><a href="#">7 способов создать объем у корней</a></h4>
+                        <div class="post-date">15 января 2023</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>SLEEKER</h3>
+                <p>Производитель настоящей косметики с 2013 года. ООО "Сликер".</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Продукция</h3>
+                <a href="shampoos.html">Шампуни TOT</a>
+                <a href="conditioners.html">Кондиционеры ТОТ</a>
+                <a href="wash-off-masks.html">Маски смываемые TA</a>
+                <a href="leave-in-masks.html">Маски несмываемые TA</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Полезное</h3>
+                <a href="blog.html">Блог</a>
+                <a href="#">Советы по уходу</a>
+                <a href="#">Инструкции</a>
+                <a href="#">Сертификаты</a>
+                <a href="#">Частые вопросы</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Контакты</h3>
+                <a href="tel:88008008000">8 800 800 8000</a>
+                <a href="mailto:info@sleeker.ru">info@sleeker.ru</a>
+                <a href="https://vk.com/sleeker" target="_blank">Группа ВКонтакте</a>
+                <a href="https://ozon.ru/brand/sleeker" target="_blank">Магазин на Ozon</a>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2023 SLEEKER. Все права защищены.
+        </div>
+    </footer>
+</body>
+</html>

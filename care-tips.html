@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Советы по уходу за волосами | SLEEKER</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <style>
+        :root {
+            --charcoal: #333;
+            --gold: #c0a080;
+            --light-gold: #d4c0a0;
+        }
+        
+        .tips-page {
+            padding: 150px 5% 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .page-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--charcoal);
+            position: relative;
+        }
+        
+        .page-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 2px;
+            background: var(--gold);
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .tip-category {
+            margin-bottom: 60px;
+            padding: 30px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .category-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: var(--charcoal);
+            display: flex;
+            align-items: center;
+        }
+        
+        .category-title i {
+            margin-right: 15px;
+            color: var(--gold);
+            font-size: 28px;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .tip-card {
+            padding: 25px;
+            border: 1px solid rgba(184, 159, 122, 0.2);
+            border-radius: 8px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tip-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: var(--gold);
+        }
+        
+        .tip-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--charcoal);
+            display: flex;
+            align-items: center;
+        }
+        
+        .tip-card h3 i {
+            margin-right: 10px;
+            color: var(--gold);
+        }
+        
+        .tip-card p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+        
+        .tip-image {
+            height: 200px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .tip-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .tip-card:hover .tip-image img {
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="logo">ТОТ<span>ТА</span></div>
+        <div class="mobile-menu-btn">☰</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li class="dropdown">
+                    <a href="#">Продукция</a>
+                    <div class="dropdown-content">
+                        <a href="shampoos.html">Шампуни TOT</a>
+                        <a href="conditioners.html">Кондиционеры</a>
+                        <a href="wash-off-masks.html">Маски смываемые TA</a>
+                        <a href="leave-in-masks.html">Маски несмываемые TA</a>
+                    </div>
+                </li>
+                <li><a href="about.html">О бренде</a></li>
+                <li><a href="blog.html">Блог</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Контент страницы -->
+    <main class="tips-page">
+        <h1 class="page-title">Советы по уходу за волосами</h1>
+        
+        <div class="tip-category">
+            <h2 class="category-title"><i class="fas fa-shower"></i> Мытьё волос</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-image">
+                        <img src="images/tip-washing.jpg" alt="Правильное мытье волос">
+                    </div>
+                    <h3><i class="fas fa-check-circle"></i> Температура воды</h3>
+                    <p>Используйте теплую, а не горячую воду для мытья волос. Горячая вода смывает естественные масла, делая волосы сухими и ломкими.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-image">
+                        <img src="images/tip-shampoo.jpg" alt="Нанесение шампуня">
+                    </div>
+                    <h3><i class="fas fa-check-circle"></i> Техника нанесения</h3>
+                    <p>Наносите шампунь только на кожу головы и корни волос. Кончики очистятся стекающей пеной во время смывания.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-image">
+                        <img src="images/tip-rinse.jpg" alt="Смывание шампуня">
+                    </div>
+                    <h3><i class="fas fa-check-circle"></i> Тщательное смывание</h3>
+                    <p>Всегда полностью смывайте шампунь и кондиционер. Остатки средств могут утяжелять волосы и вызывать раздражение кожи головы.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tip-category">
+            <h2 class="category-title"><i class="fas fa-wind"></i> Сушка и укладка</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-image">
+                        <img src="images/tip-towel.jpg" alt="Сушка полотенцем">
+                    </div>
+                    <h3><i class="fas fa-check-circle"></i> Бережное вытирание</h3>
+                    <p>Не трите мокрые волосы полотенцем - это повреждает кутикулу. Вместо этого аккуратно промокните их мягким полотенцем из микрофибры.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-image">
+                        <img src="images/tip-heat.jpg" alt="Термозащита">
+                    </div>
+                    <h3><i class="fas fa-check-circle"></i> Термозащита</h3>
+                    <p>Всегда используйте термозащитные средства перед укладкой феном, утюжком или плойкой. Наши несмываемые маски TA идеально подходят для защиты.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-image">
+                        <img src="images/tip-drying.jpg" alt="Сушка феном">
+                    </div>
+                    <h3><i class="fas fa-check-circle"></i> Правильная сушка</h3>
+                    <p>Держите фен на расстоянии 15-20 см от волос и используйте среднюю температуру. Завершайте сушку холодным воздухом для блеска.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tip-category">
+            <h2 class="category-title"><i class="fas fa-spa"></i> Питание и восстановление</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-image">
+                        <img src="images/tip-mask.jpg" alt="Использование маски">
+                    </div>
+                    <h3><i class="fas fa-check-circle"></i> Регулярные маски</h3>
+                    <p>Используйте питательные маски TA 1-2 раза в неделю. Для лучшего эффекта наденьте шапочку для душа и утеплите полотенцем на 15-20 минут.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-image">
+                        <img src="images/tip-ends.jpg" alt="Уход за кончиками">
+                    </div>
+                    <h3><i class="fas fa-check-circle"></i> Забота о кончиках</h3>
+                    <p>Еженедельно наносите на кончики несмываемую маску TA. Это предотвратит сечение и придаст волосам здоровый вид.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-image">
+                        <img src="images/tip-comb.jpg" alt="Расчесывание волос">
+                    </div>
+                    <h3><i class="fas fa-check-circle"></i> Расчесывание</h3>
+                    <p>Начинайте расчесывание с кончиков, постепенно поднимаясь к корням. Используйте расческу с широкими зубьями для мокрых волос.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>SLEEKER</h3>
+                <p>Производитель настоящей косметики с 2013 года. ООО "Сликер".</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://vk.com/tot_ta" target="_blank"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Продукция</h3>
+                <a href="shampoos.html">Шампуни TOT</a>
+                <a href="conditioners.html">Кондиционеры</a>
+                <a href="wash-off-masks.html">Смываемые маски TA</a>
+                <a href="leave-in-masks.html">Несмываемые маски TA</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Полезное</h3>
+                <a href="care-tips.html">Советы по уходу</a>
+                <a href="instructions.html">Инструкции</a>
+                <a href="certificates.html">Сертификаты</a>
+                <a href="faq.html">Частые вопросы</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Контакты</h3>
+                <a href="tel:88008008000">8 800 800 8000</a>
+                <a href="mailto:info@sleeker.ru">info@sleeker.ru</a>
+                <a href="https://vk.com/tot_ta" target="_blank">Группа ВКонтакте</a>
+                <a href="https://www.ozon.ru/seller/tot-ta-1497011" target="_blank">Магазин на Ozon</a>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2023 SLEEKER. Все права защищены.
+        </div>
+    </footer>
+</body>
+</html>

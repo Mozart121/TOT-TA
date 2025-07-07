@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLEEKER - для ослабленных/окрашенных волос</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <style>
+        :root {
+            --charcoal: #333;
+            --gold: #c0a080;
+            --light-gold: #d4c0a0;
+            --botox-color: #5c7c9a;
+        }
+        
+        .product-page {
+            padding: 150px 5% 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .page-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--charcoal);
+            position: relative;
+        }
+        
+        .page-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 2px;
+            background: var(--gold);
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .linear-image {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            height: 150px;
+        }
+        
+        .linear-image img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            transition: transform 0.5s;
+            object-fit: cover;
+        }
+        
+        .linear-image:hover img {
+            transform: scale(1.03);
+        }
+        
+        .linear-description {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        .composition {
+            background: rgba(184, 159, 122, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+            text-align: left;
+            font-size: 16px;
+            position: relative;
+        }
+        
+        .composition::before {
+            content: "Состав:";
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--charcoal);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+        }
+        
+        .scent-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .scent-option {
+            width: 300px;
+            padding: 30px;
+            border: 1px solid rgba(92, 124, 154, 0.3);
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .scent-option:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(92, 124, 154, 0.15);
+            border-color: var(--botox-color);
+        }
+        
+        .scent-option img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: transform 0.4s;
+        }
+        
+        .scent-option:hover img {
+            transform: scale(1.05);
+        }
+        
+        .scent-option h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--charcoal);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .scent-option p {
+            color: #777;
+            margin-bottom: 20px;
+            min-height: 60px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Стили для кнопки "Скоро в продаже" */
+        .soon-btn {
+            display: block;
+            width: 100%;
+            padding: 12px 0;
+            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+            color: #5c7c9a;
+            text-align: center;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: default;
+            border: 1px solid rgba(92, 124, 154, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+            transition: all 0.3s;
+        }
+        
+        .soon-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.4), 
+                transparent);
+            transition: all 0.6s;
+        }
+        
+        .scent-option:hover .soon-btn {
+            background: linear-gradient(135deg, #f0f0f0, #e8e8e8);
+            border-color: var(--botox-color);
+            box-shadow: 0 5px 15px rgba(92, 124, 154, 0.1);
+        }
+        
+        .scent-option:hover .soon-btn::before {
+            left: 100%;
+        }
+        
+        .soon-btn i {
+            margin-right: 8px;
+            color: #5c7c9a;
+        }
+        
+        /* Индикатор "Скоро" */
+        .soon-tag {
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: var(--botox-color);
+            color: white;
+            padding: 5px 30px;
+            font-size: 12px;
+            font-weight: 600;
+            transform: rotate(45deg);
+            z-index: 1;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 10px 25px;
+            background: var(--gold);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .back-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.3), 
+                transparent);
+            transition: all 0.6s;
+        }
+        
+        .back-btn:hover {
+            background: var(--light-gold);
+            box-shadow: 0 5px 15px rgba(184, 159, 122, 0.3);
+        }
+        
+        .back-btn:hover::before {
+            left: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .scent-options {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .scent-option {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="logo">ТОТ<span>ТА</span></div>
+        <div class="mobile-menu-btn">☰</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li class="dropdown">
+                    <a href="#">Продукция</a>
+                    <div class="dropdown-content">
+                        <a href="shampoos.html">Шампуни TOT</a>
+                        <a href="conditioners.html">Кондиционеры</a>
+                        <a href="wash-off-masks.html">Маски смываемые TA</a>
+                        <a href="leave-in-masks.html">Маски несмываемые TA</a>
+                    </div>
+                </li>
+                <li><a href="about.html">О бренде</a></li>
+                <li><a href="blog.html">Блог</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Контент страницы -->
+    <main class="product-page">
+        <h1 class="page-title">ТОТ для ослабленных/окрашенных волос</h1>
+        
+        <div class="linear-image">
+            <img src="images/damaged-line.jpg" alt="Линейка шампуней для ослабленных/окрашенных волос">
+        </div>
+        
+        <div class="linear-description">
+            <p>Специально разработанный шампунь для деликатного очищения ослабленных окрашиванием волос. Сверхмягкая формула с натрия кокоил изетионатом бережно удаляет загрязнения, не утяжеляя тонкие волосы и сохраняя объем у корней.</p>
+            
+            <p>Мощные антиоксиданты (зеленый чай, ромашка) защищают яркость цвета от вымывания и внешних агрессоров. Кератин и аминокислоты начинают процесс укрепления волос изнутри, повышая их сопротивляемость ломкости. Идеален для сохранения цвета, силы и объема тонких или окрашенных волос.</p>
+            
+            <p>Результат: чистые, легкие, сияющие волосы с защищенным цветом и ощущением силы. Отлично подходит для тонких волос – очищает бережно, не утяжеляя, придает объем у корней, смягчает, облегчает расчесывание.</p>
+            
+            <div class="composition">
+                Вода, кокоглюкозид, лаурилглюкозид, кокосульфат натрия, натрия кокоил изетионат, кератин гидролизованный, 
+                Д-пантенол, парфюмерная композиция, экстракт ромашки, экстракт зеленого чая, аллантоин, калия сорбат, 
+                натрий PCA, натрия лактат, комплекс аминокислот (аргинин, аспартановая кислота, аланин PCA глицин, серин, 
+                валин, изолейцин, треонин, пролин, гистидин, фенилаланин)
+            </div>
+        </div>
+        
+        <div class="scent-options">
+            <div class="scent-option">
+                <div class="soon-tag">СКОРО</div>
+                <img src="images/damaged-cherry.jpg" alt="Шампунь для ослабленных волос, аромат Вишня">
+                <h3>Аромат Вишня</h3>
+                <p>Спелая вишня с нотами ванили. Восстанавливает структуру поврежденных волос.</p>
+                <div class="soon-btn">
+                    <i class="fas fa-clock"></i> Скоро в продаже
+                </div>
+            </div>
+            
+            <div class="scent-option">
+                <div class="soon-tag">СКОРО</div>
+                <img src="images/damaged-peach.jpg" alt="Шампунь для ослабленных волос, аромат Персик">
+                <h3>Аромат Персик</h3>
+                <p>Нежный персик с цветочными акцентами. Укрепляет ломкие и окрашенные волосы.</p>
+                <div class="soon-btn">
+                    <i class="fas fa-clock"></i> Скоро в продаже
+                </div>
+            </div>
+            
+            <div class="scent-option">
+                <div class="soon-tag">СКОРО</div>
+                <img src="images/damaged-flora.jpg" alt="Шампунь для ослабленных волос, аромат Флора">
+                <h3>Аромат Флора</h3>
+                <p>Цветочная композиция пиона и жасмина. Для интенсивного восстановления.</p>
+                <div class="soon-btn">
+                    <i class="fas fa-clock"></i> Скоро в продаже
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="shampoos.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Назад ко всем линейкам
+            </a>
+        </div>
+    </main>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>SLEEKER</h3>
+                <p>Производитель настоящей косметики с 2013 года. ООО "Сликер".</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://vk.com/tot_ta" target="_blank"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Продукция</h3>
+                <a href="shampoos.html">Шампуни TOT</a>
+                <a href="conditioners.html">Кондиционеры ТОТ</a>
+                <a href="wash-off-masks.html">Маски смываемые TA</a>
+                <a href="leave-in-masks.html">Маски несмываемые TA</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Полезное</h3>
+                <a href="blog.html">Блог</a>
+                <a href="care-tips.html">Советы по уходу</a>
+                <a href="instructions.html">Инструкции</a>
+                <a href="certificates.html">Сертификаты</a>
+                <a href="faq.html">Частые вопросы</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Контакты</h3>
+                <a href="tel:88008008000">8 800 800 8000</a>
+                <a href="mailto:info@sleeker.ru">info@sleeker.ru</a>
+                <a href="https://vk.com/tot_ta" target="_blank">Группа ВКонтакте</a>
+                <a href="https://www.ozon.ru/seller/tot-ta-1497011" target="_blank">Магазин на Ozon</a>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2023 SLEEKER. Все права защищены.
+        </div>
+    </footer>
+</body>
+</html>

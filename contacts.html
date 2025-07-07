@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLEEKER - Контакты</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <style>
+        .contacts-page {
+            padding: 150px 5% 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .page-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--charcoal);
+            position: relative;
+        }
+        
+        .page-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 2px;
+            background: var(--gold);
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .contacts-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+        
+        .contact-info {
+            padding: 40px;
+            background: #f9f7f4;
+            border-radius: 10px;
+        }
+        
+        .contact-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: var(--charcoal);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .contact-title:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(184, 159, 122, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .contact-icon i {
+            font-size: 20px;
+            color: var(--gold);
+        }
+        
+        .contact-details h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: var(--charcoal);
+        }
+        
+        .contact-details p, 
+        .contact-details a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-details a:hover {
+            color: var(--gold);
+        }
+        
+        .contact-form {
+            padding: 40px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .form-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: var(--charcoal);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .form-title:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--charcoal);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+            outline: none;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: var(--gold);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .submit-btn i {
+            margin-left: 10px;
+        }
+        
+        .submit-btn:hover {
+            background: #a78f6a;
+        }
+        
+        @media (max-width: 768px) {
+            .contacts-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info,
+            .contact-form {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="logo">ТОТ<span>ТА</span></div>
+        <div class="mobile-menu-btn">☰</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li class="dropdown">
+                    <a href="#">Продукция</a>
+                    <div class="dropdown-content">
+                        <a href="shampoos.html">Шампуни TOT</a>
+                        <a href="conditioners.html">Кондиционеры</a>
+                        <a href="wash-off-masks.html">Маски смываемые TA</a>
+                        <a href="leave-in-masks.html">Маски несмываемые TA</a>
+                    </div>
+                </li>
+                <li><a href="about.html">О бренде</a></li>
+                <li><a href="blog.html">Блог</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Контент страницы -->
+    <main class="contacts-page">
+        <h1 class="page-title">Контакты</h1>
+        
+        <div class="contacts-container">
+            <div class="contact-info">
+                <h2 class="contact-title">Наши контакты</h2>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-vk"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>ВКонтакте</h3>
+                        <a href="https://vk.com/tot_ta" target="_blank">vk.com/tot_ta</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-telegram"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Telegram</h3>
+                        <a href="https://t.me/tot_ta" target="_blank">@tot_ta</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-ozon"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Магазин Ozon</h3>
+                        <a href="https://www.ozon.ru/seller/tot-ta-1497011" target="_blank">Ozon - ТОТ ТА</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <a href="mailto:info@sleeker.ru">info@sleeker.ru</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Телефон</h3>
+                        <a href="tel:+78008008000">8 (800) 800-80-00</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h2 class="form-title">Напишите нам</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Тема сообщения</label>
+                        <input type="text" id="subject">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Отправить <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Подвал (исправленный) -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>SLEEKER</h3>
+                <p>Производитель настоящей косметики с 2013 года. ООО "Сликер".</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://vk.com/tot_ta" target="_blank"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Продукция</h3>
+                <a href="shampoos.html">Шампуни TOT</a>
+                <a href="conditioners.html">Кондиционеры</a>
+                <a href="wash-off-masks.html">Смываемые маски TA</a>
+                <a href="leave-in-masks.html">Несмываемые маски TA</a>
+                <a href="#">Подарочные наборы</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Полезное</h3>
+                <a href="blog.html">Блог</a>
+                <a href="#">Советы по уходу</a>
+                <a href="#">Инструкции</a>
+                <a href="#">Сертификаты</a>
+                <a href="#">Частые вопросы</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Контакты</h3>
+                <a href="tel:+8 800 800 8000">8 800 800 8000</a>
+                <a href="mailto:info@sleeker.ru">info@sleeker.ru</a>
+                <a href="https://vk.com/tot_ta" target="_blank">Группа ВКонтакте</a>
+                <a href="https://www.ozon.ru/seller/tot-ta-1497011" target="_blank">Магазин на Ozon</a>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2023 SLEEKER. Все права защищены.
+        </div>
+    </footer>
+</body>
+</html>

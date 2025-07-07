@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLEEKER - Шампуни TOT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <style>
+        :root {
+            --charcoal: #333;
+            --gold: #c0a080;
+            --light-gold: #d4c0a0;
+        }
+        
+        .product-page {
+            padding: 150px 5% 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .page-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--charcoal);
+            position: relative;
+        }
+        
+        .page-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 2px;
+            background: var(--gold);
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .product-category {
+            margin-bottom: 80px;
+            padding-top: 40px;
+            position: relative;
+        }
+        
+        .category-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: var(--charcoal);
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .category-title:hover {
+            color: var(--gold);
+        }
+        
+        .category-title::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        .category-title:hover::after {
+            width: 100%;
+        }
+        
+        .linear-image {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            height: 150px;
+        }
+        
+        .linear-image img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            transition: transform 0.5s;
+            object-fit: cover;
+        }
+        
+        .linear-image:hover img {
+            transform: scale(1.03);
+        }
+        
+        .scent-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .scent-option {
+            width: 300px;
+            padding: 30px;
+            border: 1px solid rgba(184, 159, 122, 0.3);
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+            background: white;
+        }
+        
+        .scent-option:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--gold);
+        }
+        
+        .scent-option img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        
+        .scent-option h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--charcoal);
+        }
+        
+        .scent-option p {
+            color: #777;
+            margin-bottom: 20px;
+            min-height: 60px;
+        }
+        
+        .ozon-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #005BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background 0.3s;
+            font-size: 14px;
+        }
+        
+        .ozon-btn:hover {
+            background: #0040c0;
+        }
+        
+        .ozon-btn i {
+            margin-left: 8px;
+        }
+        
+        .scent-anchor {
+            position: relative;
+            top: -120px;
+            visibility: hidden;
+        }
+        
+        @media (max-width: 768px) {
+            .scent-options {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .scent-option {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="logo">ТОТ<span>ТА</span></div>
+        <div class="mobile-menu-btn">☰</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li class="dropdown">
+                    <a href="#">Продукция</a>
+                    <div class="dropdown-content">
+                        <a href="shampoos.html">Шампуни TOT</a>
+                        <a href="conditioners.html">Кондиционеры</a>
+                        <a href="wash-off-masks.html">Маски смываемые TA</a>
+                        <a href="leave-in-masks.html">Маски несмываемые TA</a>
+                    </div>
+                </li>
+                <li><a href="about.html">О бренде</a></li>
+                <li><a href="blog.html">Блог</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Контент страницы -->
+    <main class="product-page">
+        <h1 class="page-title">Шампуни TOT</h1>
+        
+        <!-- Линейка Ориджинал -->
+        <div class="product-category">
+            <a href="shampoos-original.html" class="category-link">
+                <h2 class="category-title">Ориджинал</h2>
+            </a>
+            <div class="linear-image">
+                <img src="images/original-line.jpg" alt="Линейка шампуней Ориджинал">
+            </div>
+            <div class="scent-options">
+                <div class="scent-option">
+                    <img src="images/ordg-cherry.jpg" alt="Шампунь Ориджинал, аромат Вишня">
+                    <h3>Аромат Вишня</h3>
+                    <p>Спелая вишня, ваниль и легкие древесные нотки. Тонкий и запоминающийся аромат, который останется с вами на весь день</p>
+                    <a href="https://www.ozon.ru/product/shampun-tot-oridzhinal-vosstanavlivayushchiy-dlya-vseh-tipov-volos-1343733314/" target="_blank" class="ozon-btn">
+                        Купить на Ozon <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                
+                <div class="scent-option">
+                    <img src="images/ordg-peach.jpg" alt="Шампунь Ориджинал, аромат Персик">
+                    <h3>Аромат Персик</h3>
+                    <p>Спелые персики, белые цветы и мускус. Свежий и пленительный аромат, напоминающий о летних днях</p>
+                    <a href="https://www.ozon.ru/product/shampun-tot-oridzhinal-vosstanavlivayushchiy-dlya-vseh-tipov-volos-1674865224/" target="_blank" class="ozon-btn">
+                        Купить на Ozon <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                
+                <div class="scent-option">
+                    <img src="images/ordg-flora.jpg" alt="Шампунь Ориджинал, аромат Флора">
+                    <h3>Аромат Флора</h3>
+                    <p>Пион, фрезия и жасмин с аккордами амбры. Изысканный и утонченный аромат для истинных ценителей</p>
+                    <a href="https://www.ozon.ru/product/shampun-tot-oridzhinal-vosstanavlivayushchiy-dlya-vseh-tipov-volos-1343733128/" target="_blank" class="ozon-btn">
+                        Купить на Ozon <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Линейка для кудрявых волос -->
+        <div class="product-category">
+            <a href="shampoos-curly.html" class="category-link">
+                <h2 class="category-title"> ТОТ для кудрявых волос</h2>
+            </a>
+            <div class="linear-image">
+                <img src="images/curly-line.jpg" alt="Линейка шампуней для кудрявых волос">
+            </div>
+            <div class="scent-options">
+                <div class="scent-option">
+                    <img src="images/curly-cherry.jpg" alt="Шампунь для кудрявых волос, аромат Вишня">
+                    <h3>Аромат Вишня</h3>
+                    <p>Спелая вишня, ваниль и легкие древесные нотки. Тонкий и запоминающийся аромат, который останется с вами на весь день</p>
+                    <a href="https://ozon.ru/link-to-cherry-curly-shampoo" target="_blank" class="ozon-btn">
+                        Купить на Ozon <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                
+                <div class="scent-option">
+                    <img src="images/curly-peach.jpg" alt="Шампунь для кудрявых волос, аромат Персик">
+                    <h3>Аромат Персик</h3>
+                    <p>Спелые персики, белые цветы и мускус. Свежий и пленительный аромат, напоминающий о летних днях</p>
+                    <a href="https://ozon.ru/link-to-peach-curly-shampoo" target="_blank" class="ozon-btn">
+                        Купить на Ozon <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                
+                <div class="scent-option">
+                    <img src="images/curly-flora.jpg" alt="Шампунь для кудрявых волос, аромат Флора">
+                    <h3>Аромат Флора</h3>
+                    <p>Пион, фрезия и жасмин с аккордами амбры. Изысканный и утонченный аромат для истинных ценителей</p>
+                    <a href="https://ozon.ru/link-to-flora-curly-shampoo" target="_blank" class="ozon-btn">
+                        Купить на Ozon <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Линейка для ослабленных/окрашенных волос -->
+        <div class="product-category">
+            <a href="shampoos-damaged.html" class="category-link">
+                <h2 class="category-title">ТОТ для ослабленных/окрашенных волос</h2>
+            </a>
+            <div class="linear-image">
+                <img src="images/damaged-line.jpg" alt="Линейка шампуней для ослабленных/окрашенных волос">
+            </div>
+            <div class="scent-options">
+                <div class="scent-option">
+                    <img src="images/damaged-cherry.jpg" alt="Шампунь для ослабленных волос, аромат Вишня">
+                    <h3>Аромат Вишня</h3>
+                    <p>Спелая вишня, ваниль и легкие древесные нотки. Тонкий и запоминающийся аромат, который останется с вами на весь день</p>
+                    <a href="https://ozon.ru/link-to-cherry-damaged-shampoo" target="_blank" class="ozon-btn">
+                        Купить на Ozon <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                
+                <div class="scent-option">
+                    <img src="images/damaged-peach.jpg" alt="Шампунь для ослабленных волос, аромат Персик">
+                    <h3>Аромат Персик</h3>
+                    <p>Спелые персики, белые цветы и мускус. Свежий и пленительный аромат, напоминающий о летних днях</p>
+                    <a href="https://ozon.ru/link-to-peach-damaged-shampoo" target="_blank" class="ozon-btn">
+                        Купить на Ozon <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                
+                <div class="scent-option">
+                    <img src="images/damaged-flora.jpg" alt="Шампунь для ослабленных волос, аромат Флора">
+                    <h3>Аромат Флора</h3>
+                    <p>Пион, фрезия и жасмин с аккордами амбры. Изысканный и утонченный аромат для истинных ценителей</p>
+                    <a href="https://ozon.ru/link-to-flora-damaged-shampoo" target="_blank" class="ozon-btn">
+                        Купить на Ozon <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Линейка Блонд -->
+        <div class="product-category">
+            <a href="shampoos-blond.html" class="category-link">
+                <h2 class="category-title">Блонд</h2>
+            </a>
+            <div class="linear-image">
+                <img src="images/blond-line.jpg" alt="Линейка шампуней Блонд">
+            </div>
+            <div class="scent-options">
+                <div class="scent-option">
+                    <img src="images/blond-cherry.jpg" alt="Шампунь для блонда, аромат Вишня">
+                    <h3>Аромат Вишня</h3>
+                    <p>Спелая вишня, ваниль и легкие древесные нотки. Тонкий и запоминающийся аромат, который останется с вами на весь день</p>
+                    <a href="https://ozon.ru/link-to-cherry-blond-shampoo" target="_blank" class="ozon-btn">
+                        Купить на Ozon <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                
+                <div class="scent-option">
+                    <img src="images/blond-peach.jpg" alt="Шампунь для блонда, аромат Персик">
+                    <h3>Аромат Персик</h3>
+                    <p>Спелые персики, белые цветы и мускус. Свежий и пленительный аромат, напоминающий о летних днях</p>
+                    <a href="https://ozon.ru/link-to-peach-blond-shampoo" target="_blank" class="ozon-btn">
+                        Купить на Ozon <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                
+                <div class="scent-option">
+                    <img src="images/blond-flora.jpg" alt="Шампунь для блонда, аромат Флора">
+                    <h3>Аромат Флора</h3>
+                    <p>Пион, фрезия и жасмин с аккордами амбры. Изысканный и утонченный аромат для истинных ценителей</p>
+                    <a href="https://ozon.ru/link-to-flora-blond-shampoo" target="_blank" class="ozon-btn">
+                        Купить на Ozon <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>SLEEKER</h3>
+                <p>Производитель настоящей косметики с 2013 года. ООО "Сликер".</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://vk.com/tot_ta" target="_blank"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Продукция</h3>
+                <a href="shampoos.html">Шампуни TOT</a>
+                <a href="conditioners.html">Кондиционеры ТОТ</a>
+                <a href="wash-off-masks.html">Маски смываемые TA</a>
+                <a href="leave-in-masks.html">Маски несмываемые TA</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Полезное</h3>
+                <a href="blog.html">Блог</a>
+                <a href="#">Советы по уходу</a>
+                <a href="#">Инструкции</a>
+                <a href="#">Сертификаты</a>
+                <a href="#">Частые вопросы</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Контакты</h3>
+                <a href="tel:88008008000">8 800 800 8000</a>
+                <a href="mailto:info@sleeker.ru">info@sleeker.ru</a>
+                <a href="https://vk.com/tot_ta" target="_blank">Группа ВКонтакте</a>
+                <a href="https://www.ozon.ru/seller/tot-ta-1497011" target="_blank">Магазин на Ozon</a>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2023 SLEEKER. Все права защищены.
+        </div>
+    </footer>
+</body>
+</html>

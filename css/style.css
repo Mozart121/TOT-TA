@@ -1,0 +1,834 @@
+:root {
+    --ivory: #F9F6F0;
+    --taupe: #D8C4B6;
+    --charcoal: #3C3633;
+    --rose: #C6A9A3;
+    --gold: #B89F7A;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: var(--ivory);
+    color: var(--charcoal);
+    line-height: 1.7;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Шапка */
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    padding: 25px 5%;
+    background: rgba(249, 246, 240, 0.95);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(184, 159, 122, 0.2);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--charcoal);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav li {
+    margin: 0 20px;
+    position: relative;
+}
+
+nav a {
+    color: var(--charcoal);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: var(--ivory);
+    min-width: 200px;
+    padding: 15px 0;
+    border: 1px solid var(--gold);
+    top: 100%;
+    left: -20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px 25px;
+    font-size: 13px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Герой-секция */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(249, 246, 240, 0.95) 0%, rgba(249, 246, 240, 0.8) 100%);
+    padding-top: 100px;
+}
+
+.hero-container {
+    display: flex;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 5%;
+    align-items: center;
+    gap: 50px;
+    height: 100%;
+}
+
+.hero-content {
+    flex: 1;
+    z-index: 2;
+    padding: 40px 0;
+    max-width: 600px;
+}
+
+.hero-image-wrapper {
+    flex: 2;
+    position: relative;
+    z-index: 1;
+    height: 55vh;
+    margin-left: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 
+        0 0 0 10px rgba(249, 246, 240, 0.8),
+        0 0 30px rgba(184, 159, 122, 0.4);
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Эффект мягких границ */
+.hero-image::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    background: inherit;
+    filter: blur(12px);
+    z-index: -1;
+    border-radius: 15px;
+    background-image: inherit;
+}
+
+.hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    line-height: 1.1;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.hero h1 span {
+    color: var(--gold);
+    font-style: italic;
+}
+
+.hero h1:after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background: var(--gold);
+    bottom: 0;
+    left: 0;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: #555;
+    max-width: 500px;
+}
+
+/* Адаптивность */
+@media (max-width: 1100px) {
+    .hero h1 {
+        font-size: 50px;
+    }
+    
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    
+    .hero h1:after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .hero p {
+        margin: 0 auto 40px;
+        max-width: 100%;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+    }
+    
+    .hero-image-wrapper {
+        width: 100%;
+        height: 45vh;
+        max-height: 500px;
+        flex: none;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    .hero p {
+        font-size: 16px;
+    }
+    
+    .hero-image-wrapper {
+        height: 40vh;
+    }
+}
+
+/* Коллекции */
+.collection {
+    padding: 120px 5%;
+    text-align: center;
+    background: url('images/collection-bg.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.collection:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(249, 246, 240, 0.92);
+}
+
+.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    margin-bottom: 70px;
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+    color: var(--charcoal);
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 2px;
+    background: var(--gold);
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.product-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 2px;
+    transition: transform 0.4s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+}
+
+.product-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.product-image {
+    height: 280px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 25px;
+    transition: transform 0.5s;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.08);
+}
+
+.product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--charcoal);
+}
+
+.product-type {
+    color: var(--gold);
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.product-description {
+    color: #777;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    min-height: 80px;
+}
+
+/* Ароматы */
+.scents {
+    padding: 100px 5%;
+    background: var(--ivory);
+    position: relative;
+    overflow: hidden;
+}
+
+.scent-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 70px;
+}
+
+.scent-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.scent-card {
+    width: 280px;
+    height: 380px;
+    perspective: 1000px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.scent-card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.card-front {
+    background: white;
+    border: 1px solid rgba(184, 159, 122, 0.3);
+}
+
+.card-back {
+    background: white;
+    border: 1px solid var(--gold);
+    transform: rotateY(180deg);
+}
+
+.scent-icon {
+    font-size: 60px;
+    margin-bottom: 25px;
+    color: var(--gold);
+}
+
+.scent-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: var(--charcoal);
+}
+
+.scent-description {
+    color: #777;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.scent-btn {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.scent-btn:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: var(--gold);
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s;
+}
+
+.scent-btn:hover:after {
+    width: 70%;
+}
+
+/* О бренде */
+.about {
+    display: flex;
+    min-height: 700px;
+}
+
+.about-image {
+    flex: 1;
+    background: url('images/about.jpg') no-repeat center center/cover;
+}
+
+.about-content {
+    flex: 1;
+    padding: 80px 8%;
+    background: var(--charcoal);
+    color: var(--ivory);
+}
+
+.about h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    margin-bottom: 30px;
+    font-weight: 600;
+    color: var(--ivory);
+}
+
+.about p {
+    margin-bottom: 25px;
+    color: #ddd;
+}
+
+.features {
+    margin: 40px 0;
+}
+
+.feature {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.feature-icon {
+    font-size: 22px;
+    color: var(--gold);
+    margin-right: 20px;
+    min-width: 30px;
+}
+
+.feature-text h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--ivory);
+}
+
+.feature-text p {
+    color: #bbb;
+    font-size: 15px;
+}
+
+/* Подвал */
+footer {
+    background: var(--charcoal);
+    color: var(--ivory);
+    padding: 80px 5% 40px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-column h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 15px;
+    font-weight: 600;
+    color: var(--ivory);
+}
+
+.footer-column h3:after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    bottom: 0;
+    left: 0;
+}
+
+.footer-column p, .footer-column a {
+    color: #bbb;
+    line-height: 1.8;
+    font-size: 15px;
+    margin-bottom: 12px;
+    display: block;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-column a:hover {
+    color: var(--gold);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.social-links a:hover {
+    background: var(--gold);
+    color: var(--charcoal);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 40px;
+    margin-top: 60px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: #999;
+    font-size: 14px;
+}
+
+/* Мобильное меню */
+.mobile-menu-btn {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--charcoal);
+}
+
+@media (max-width: 1100px) {
+    .hero h1 {
+        font-size: 50px;
+    }
+    
+    .about {
+        flex-direction: column;
+    }
+    
+    .about-image {
+        height: 500px;
+    }
+    
+    .scent-card {
+        width: 250px;
+        height: 350px;
+    }
+    
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        max-width: 1400px;
+    }
+    
+    .hero h1:after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .hero p {
+        margin: 0 auto 40px;
+        max-width: 100%;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+    }
+    
+    .hero-image {
+        width: 100%;
+        height: 45vh;
+        max-height: 500px;
+        flex: none;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    .hero p {
+        font-size: 16px;
+    }
+    
+    .hero-image {
+        height: 40vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .scent-card {
+        width: 100%;
+        max-width: 320px;
+        height: 380px;
+    }
+    
+    .logo {
+        font-size: 28px;
+    }
+}
+/* Стили для кнопок */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--gold);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.3s;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif;
+}
+
+.btn:hover {
+    background: #a78c65;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.btn i {
+    margin-left: 8px;
+    transition: transform 0.3s;
+}
+
+.btn:hover i {
+    transform: translateX(3px);
+}
+
+.scent-btn {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.scent-btn:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: var(--gold);
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s;
+}
+
+.scent-btn:hover:after {
+    width: 70%;
+}
+
+.ozon-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #005BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background 0.3s;
+    font-size: 14px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.ozon-btn:hover {
+    background: #0040c0;
+    color: white;
+}
+
+.ozon-btn i {
+    margin-left: 8px;
+}
+
+/* Стили для иконок ароматов */
+.scent-icon {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s;
+}
+
+.scent-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.scent-card:hover .scent-icon img {
+    transform: scale(1.1);
+}
+
+/* СТИЛИ ДЛЯ ИЗОБРАЖЕНИЙ ЛИНЕЕК (ЗОЛОТОЕ СЕЧЕНИЕ) */
+.linear-image {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding-bottom: 61.8%; /* Соотношение золотого сечения (1/1.618 ≈ 0.618) */
+    height: 0;
+}
+
+.linear-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: transform 0.5s;
+    object-fit: cover;
+}
+
+.linear-image:hover img {
+    transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+    .linear-image {
+        padding-bottom: 61.8%;
+        margin: 0 auto 30px;
+    }
+}

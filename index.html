@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLEEKER - Роскошная косметика для волос</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <style>
+        /* Стили для секции "О бренде" */
+        .brand-section {
+            padding: 100px 5%;
+            background: white;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .brand-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .brand-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .brand-image img:hover {
+            transform: scale(1.03);
+        }
+        
+        .brand-content {
+            flex: 1;
+        }
+        
+        .brand-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--charcoal);
+        }
+        
+        .brand-content p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .brand-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .brand-feature {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(184, 159, 122, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .feature-icon i {
+            font-size: 18px;
+            color: var(--gold);
+        }
+        
+        .feature-text h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: var(--charcoal);
+        }
+        
+        .feature-text p {
+            font-size: 16px;
+            color: #777;
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 768px) {
+            .brand-container {
+                flex-direction: column;
+            }
+            
+            .brand-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="logo">ТОТ<span>ТА</span></div>
+        <div class="mobile-menu-btn">☰</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li class="dropdown">
+                    <a href="#">Продукция</a>
+                    <div class="dropdown-content">
+                        <a href="shampoos.html">Шампуни TOT</a>
+                        <a href="conditioners.html">Кондиционеры</a>
+                        <a href="wash-off-masks.html">Маски смываемые TA</a>
+                        <a href="leave-in-masks.html">Маски несмываемые TA</a>
+                    </div>
+                </li>
+                <li><a href="about.html">О бренде</a></li>
+                <li><a href="blog.html">Блог</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Герой-секция -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>ТОТ шампунь - ТОТ результат</h1>
+                <p>Погрузитесь в мир премиальной косметики SLEEKER, где передовые технологии сочетаются с роскошными натуральными ингредиентами для создания безупречной красоты ваших волос.</p>
+                <a href="#products" class="btn">Открыть коллекцию <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="hero-image-wrapper">
+                <div class="hero-image">
+                    <img src="images/hero.jpg" alt="SLEEKER премиальная косметика для волос">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Коллекция продуктов -->
+    <section class="collection" id="products">
+        <h2 class="section-title">Наша Коллекция</h2>
+        <div class="products">
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('images/shampoo.jpg');"></div>
+                <div class="product-type">Шампуни</div>
+                <h3 class="product-name">Безупречно чистые волосы</h3>
+                <p class="product-description">Эксклюзивные шампуни для глубокого очищения и восстановления структуры волос с защитой цвета.</p>
+                <a href="shampoos.html" class="btn">Выбрать аромат <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('images/conditioner.jpg');"></div>
+                <div class="product-type">Кондиционеры</div>
+                <h3 class="product-name">Ежедневный уход</h3>
+                <p class="product-description">Кондиционеры с кератином и натуральными маслами для мгновенного разглаживания и блеска.</p>
+                <a href="conditioners.html" class="btn">Выбрать аромат <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('images/wash-off-mask.jpg');"></div>
+                <div class="product-type">Маски питательные</div>
+                <h3 class="product-name">Интенсивное питание и восстановление</h3>
+                <p class="product-description">Экспресс-уход для глубокого восстановления поврежденных волос после окрашивания и термовоздействия.</p>
+                <a href="wash-off-masks.html" class="btn">Выбрать аромат <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('images/leave-in-mask.jpg');"></div>
+                <div class="product-type">Маски "холодный ботокс"</div>
+                <h3 class="product-name">Ламинирование волос</h3>
+                <p class="product-description">Защита волос</p>
+                <a href="leave-in-masks.html" class="btn">Выбрать аромат <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ароматы -->
+    <section class="scents">
+        <div class="scent-header">
+            <h2 class="section-title">Эксклюзивные Ароматы</h2>
+            <p>Наведите курсор, чтобы раскрыть композицию каждого аромата</p>
+        </div>
+        <div class="scent-cards">
+            <div class="scent-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="scent-icon">
+                            <img src="images/cherry-icon.jpg" alt="Вишня">
+                        </div>
+                        <h3 class="scent-name">Вишня</h3>
+                        <p class="scent-description">Соблазнительный фруктовый аромат</p>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="scent-name">Композиция</h3>
+                        <p class="scent-description">Спелая вишня, ваниль и легкие древесные нотки. Тонкий и запоминающийся аромат, который останется с вами на весь день.</p>
+                        <a href="shampoos.html#cherry" class="scent-btn">Открыть коллекцию</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scent-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="scent-icon">
+                            <img src="images/peach-icon.jpg" alt="Персик">
+                        </div>
+                        <h3 class="scent-name">Персик</h3>
+                        <p class="scent-description">Нежный цветочно-фруктовый букет</p>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="scent-name">Композиция</h3>
+                        <p class="scent-description">Спелые персики, белые цветы и мускус. Свежий и пленительный аромат, напоминающий о летних днях.</p>
+                        <a href="shampoos.html#peach" class="scent-btn">Открыть коллекцию</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scent-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="scent-icon">
+                            <img src="images/flora-icon.jpg" alt="Флора">
+                        </div>
+                        <h3 class="scent-name">Флора</h3>
+                        <p class="scent-description">Изысканный цветочный парфюм</p>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="scent-name">Композиция</h3>
+                        <p class="scent-description">Пион, фрезия и жасмин с аккордами амбры. Изысканный и утонченный аромат для истинных ценителей.</p>
+                        <a href="shampoos.html#flora" class="scent-btn">Открыть коллекцию</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О бренде (обновленная секция) -->
+    <section class="brand-section">
+        <div class="brand-container">
+            <div class="brand-image">
+                <!-- Используется изображение about.jpg -->
+                <img src="images/about.jpg" alt="О бренде SLEEKER">
+            </div>
+            
+            <div class="brand-content">
+                <h2>О бренде SLEEKER</h2>
+                <p>Создаем косметические продукты с 2015 года, сочетая последние научные достижения и природные компоненты. Наша философия - гармония между наукой и природой.</p>
+                
+                <div class="brand-features">
+                    <div class="brand-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Натуральные компоненты</h3>
+                            <p>Используем только отборные натуральные ингредиенты высочайшего качества</p>
+                        </div>
+                    </div>
+                    
+                    <div class="brand-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Инновационные формулы</h3>
+                            <p>Современные научные разработки в области ухода за волосами</p>
+                        </div>
+                    </div>
+                    
+                    <div class="brand-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-recycle"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Экологичная упаковка</h3>
+                            <p>Упаковка из полностью перерабатываемых материалов</p>
+                        </div>
+                    </div>
+                    
+                    <div class="brand-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Любовь к деталям</h3>
+                            <p>Внимание к каждой детали - от формулы до упаковки</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="about.html" class="btn">История бренда <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ... остальной код index.html без изменений ... -->
+
+<!-- Подвал -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-column">
+            <h3>SLEEKER</h3>
+            <p>Производитель настоящей косметики с 2013 года. ООО "Сликер".</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="https://vk.com/tot_ta" target="_blank"><i class="fab fa-vk"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        
+        <div class="footer-column">
+            <h3>Продукция</h3>
+            <a href="shampoos.html">Шампуни TOT</a>
+            <a href="conditioners.html">Кондиционеры</a>
+            <a href="wash-off-masks.html">Смываемые маски TA</a>
+            <a href="leave-in-masks.html">Несмываемые маски TA</a>
+            <a href="#">Подарочные наборы</a>
+        </div>
+        
+        <div class="footer-column">
+            <h3>Полезное</h3>
+            <a href="care-tips.html">Советы по уходу</a>
+            <a href="instructions.html">Инструкции</a>
+            <a href="certificates.html">Сертификаты</a>
+            <a href="faq.html">Частые вопросы</a>
+        </div>
+        
+        <div class="footer-column">
+            <h3>Контакты</h3>
+            <a href="tel:+8 800 800 8000">8 800 800 8000</a>
+            <a href="mailto:info@sleeker.ru">info@sleeker.ru</a>
+            <a href="https://vk.com/tot_ta" target="_blank">Группа ВКонтакте</a>
+            <a href="https://www.ozon.ru/seller/tot-ta-1497011" target="_blank">Магазин на Ozon</a>
+        </div>
+    </div>
+    
+    <div class="copyright">
+        &copy; 2023 SLEEKER. Все права защищены.
+    </div>
+</footer>

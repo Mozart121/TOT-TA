@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Частые вопросы | SLEEKER</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <style>
+        :root {
+            --charcoal: #333;
+            --gold: #c0a080;
+            --light-gold: #d4c0a0;
+        }
+        
+        .faq-page {
+            padding: 150px 5% 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .page-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--charcoal);
+            position: relative;
+        }
+        
+        .page-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 2px;
+            background: var(--gold);
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .faq-intro {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid rgba(184, 159, 122, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px 60px 20px 25px;
+            background: white;
+            cursor: pointer;
+            position: relative;
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--charcoal);
+            transition: background 0.3s;
+        }
+        
+        .faq-question:hover {
+            background: rgba(184, 159, 122, 0.05);
+        }
+        
+        .faq-question:after {
+            content: '\f107';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .faq-question:after {
+            transform: translateY(-50%) rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s, padding 0.3s;
+            background: rgba(184, 159, 122, 0.05);
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 20px 25px;
+            max-height: 500px;
+        }
+        
+        .faq-answer p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .faq-answer p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .contact-promo {
+            max-width: 800px;
+            margin: 80px auto 0;
+            padding: 30px;
+            background: rgba(184, 159, 122, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .contact-promo h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--charcoal);
+        }
+        
+        .contact-promo p {
+            color: #555;
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--gold);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .contact-btn:hover {
+            background: var(--light-gold);
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="logo">ТОТ<span>ТА</span></div>
+        <div class="mobile-menu-btn">☰</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li class="dropdown">
+                    <a href="#">Продукция</a>
+                    <div class="dropdown-content">
+                        <a href="shampoos.html">Шампуни TOT</a>
+                        <a href="conditioners.html">Кондиционеры</a>
+                        <a href="wash-off-masks.html">Маски смываемые TA</a>
+                        <a href="leave-in-masks.html">Маски несмываемые TA</a>
+                    </div>
+                </li>
+                <li><a href="about.html">О бренде</a></li>
+                <li><a href="blog.html">Блог</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Контент страницы -->
+    <main class="faq-page">
+        <h1 class="page-title">Частые вопросы</h1>
+        
+        <div class="faq-intro">
+            <p>Мы собрали ответы на самые популярные вопросы о нашей продукции и бренде. Если вы не нашли ответ на свой вопрос, 
+            пожалуйста, свяжитесь с нами через раздел <a href="contacts.html">Контакты</a>.</p>
+        </div>
+        
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">Какие ингредиенты используются в вашей продукции?</div>
+                <div class="faq-answer">
+                    <p>Мы используем только безопасные и эффективные ингредиенты:</p>
+                    <p>- Натуральные масла (арганы, ши, жожоба)<br>
+                       - Растительные экстракты (ромашка, крапива, корень лопуха)<br>
+                       - Витамины (A, E, B5, F)<br>
+                       - Протеины шелка и кератин<br>
+                       - Без сульфатов, парабенов, силиконов и искусственных красителей</p>
+                    <p>Полный состав каждого продукта указан на упаковке и в карточке товара на Ozon.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Как выбрать подходящий продукт для моего типа волос?</div>
+                <div class="faq-answer">
+                    <p>Для разных типов волос у нас есть специальные линейки:</p>
+                    <p><strong>Для тонких и лишенных объема волос:</strong> Шампуни TOT Ориджинал<br>
+                    <strong>Для кудрявых и вьющихся волос:</strong> Шампуни TOT для кудрявых волос<br>
+                    <strong>Для окрашенных и поврежденных волос:</strong> Шампуни TOT для ослабленных/окрашенных волос<br>
+                    <strong>Для блонда:</strong> Шампуни TOT Блонд</p>
+                    <p>Также вы можете воспользоваться нашим <a href="#">онлайн-подбором</a> или проконсультироваться 
+                    с нашими специалистами через VK сообщества.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Как часто можно использовать маски TA?</div>
+                <div class="faq-answer">
+                    <p>Рекомендуемая частота использования зависит от типа маски и состояния волос:</p>
+                    <p><strong>Смываемые маски TA:</strong> 1-2 раза в неделю для поддержания здоровья волос, 
+                    до 3 раз в неделю для интенсивного восстановления после химических процедур.</p>
+                    <p><strong>Несмываемые маски TA:</strong> Можно использовать ежедневно на влажные или сухие волосы. 
+                    Особенно эффективно нанесение на кончики перед укладкой.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Есть ли разница между шампунями TOT и кондиционерами TOT?</div>
+                <div class="faq-answer">
+                    <p>Да, основное различие в их функциях:</p>
+                    <p><strong>Шампуни TOT:</strong> Основная задача - очищение волос и кожи головы. Они удаляют загрязнения, 
+                    излишки кожного сала и остатки стайлинговых средств.</p>
+                    <p><strong>Кондиционеры TOT:</strong> Основная задача - увлажнение, питание и облегчение расчесывания. 
+                    Они создают защитную пленку на волосах, предотвращая ломкость и придавая блеск.</p>
+                    <p>Для лучшего результата рекомендуется использовать шампунь и кондиционер из одной ароматической линии.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Как хранить продукцию SLEEKER?</div>
+                <div class="faq-answer">
+                    <p>Для сохранения свойств продукции рекомендуем:</p>
+                    <p>- Хранить при комнатной температуре (15-25°C)<br>
+                       - Избегать прямых солнечных лучей<br>
+                       - Не оставлять в ванной комнате с высокой влажностью<br>
+                       - Плотно закрывать крышку после использования<br>
+                       - Использовать в течение 12 месяцев после открытия</p>
+                    <p>Срок годности невскрытой продукции - 3 года с даты производства (указана на упаковке).</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Можно ли использовать вашу продукцию во время беременности?</div>
+                <div class="faq-answer">
+                    <p>Да, наша продукция безопасна для использования во время беременности и кормления грудью. 
+                    Мы используем только гипоаллергенные ингредиенты, не содержащие вредных химических соединений.</p>
+                    <p>Однако, если у вас есть индивидуальная непереносимость каких-либо компонентов или особые 
+                    рекомендации врача, перед использованием проконсультируйтесь со специалистом.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Как оформить заказ и сколько стоит доставка?</div>
+                <div class="faq-answer">
+                    <p>Вся наша продукция доступна в нашем официальном магазине на Ozon:</p>
+                    <p><a href="https://www.ozon.ru/seller/tot-ta-1497011" target="_blank">https://www.ozon.ru/seller/tot-ta-1497011</a></p>
+                    <p>Доставка осуществляется по всей России через сервис Ozon. Стоимость и сроки доставки зависят от вашего 
+                    местоположения и выбранного способа доставки. При заказе от 5000 рублей - доставка бесплатная.</p>
+                    <p>Также вы можете приобрести нашу продукцию в розничных магазинах-партнерах. Список магазинов 
+                    доступен в разделе <a href="contacts.html">Контакты</a>.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-promo">
+            <h3>Не нашли ответ на свой вопрос?</h3>
+            <p>Наша служба поддержки с радостью ответит на любые ваши вопросы о продукции, заказах и сотрудничестве.</p>
+            <a href="contacts.html" class="contact-btn">Связаться с нами</a>
+        </div>
+    </main>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>SLEEKER</h3>
+                <p>Производитель настоящей косметики с 2013 года. ООО "Сликер".</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://vk.com/tot_ta" target="_blank"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Продукция</h3>
+                <a href="shampoos.html">Шампуни TOT</a>
+                <a href="conditioners.html">Кондиционеры</a>
+                <a href="wash-off-masks.html">Смываемые маски TA</a>
+                <a href="leave-in-masks.html">Несмываемые маски TA</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Полезное</h3>
+                <a href="care-tips.html">Советы по уходу</a>
+                <a href="instructions.html">Инструкции</a>
+                <a href="certificates.html">Сертификаты</a>
+                <a href="faq.html">Частые вопросы</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Контакты</h3>
+                <a href="tel:88008008000">8 800 800 8000</a>
+                <a href="mailto:info@sleeker.ru">info@sleeker.ru</a>
+                <a href="https://vk.com/tot_ta" target="_blank">Группа ВКонтакте</a>
+                <a href="https://www.ozon.ru/seller/tot-ta-1497011" target="_blank">Магазин на Ozon</a>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2023 SLEEKER. Все права защищены.
+        </div>
+    </footer>
+
+    <script>
+        // Скрипт для работы аккордеона FAQ
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Закрываем все открытые элементы
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Переключаем текущий элемент
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
