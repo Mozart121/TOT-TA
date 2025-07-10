@@ -832,3 +832,40 @@ footer {
         margin: 0 auto 30px;
     }
 }
+
+/* Добавьте этот код в конец вашего style.css */
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    align-items: stretch; /* Важное добавление */
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Занимает всю доступную высоту */
+    background: white;
+    padding: 40px 30px;
+    border-radius: 2px;
+    transition: transform 0.4s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+}
+
+.product-description {
+    flex-grow: 1; /* Растягивает описание на доступное пространство */
+    margin-bottom: 25px;
+    min-height: 80px; /* Минимальная высота для коротких описаний */
+}
+
+.product-card .btn {
+    align-self: flex-start; /* Выравнивает кнопку по левому краю */
+    margin-top: auto; /* Прижимает кнопку к низу карточки */
+}
